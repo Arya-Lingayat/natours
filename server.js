@@ -37,7 +37,7 @@ const server = app.listen(port, () => {
 // but no catch handler or then with an error handler is attached to handle the error.
 process.on('unhandledRejection', (err) => {
   console.log(`UNHANDLED REJECTION 🔥 Shutting down....`);
-  console.log(err);
+  // console.log(err);
   server.close(() => {
     process.exit(1);
   });

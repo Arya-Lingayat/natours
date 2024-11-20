@@ -51,7 +51,7 @@ const sendErrorProd = (err, req, res) => {
     }
     //Programming or other unknown error: don't leak error details
     //Log error
-    console.error('Error🔥', err);
+    // console.error('Error🔥', err);
 
     //Send generic message
     return res.status(500).json({
@@ -69,7 +69,7 @@ const sendErrorProd = (err, req, res) => {
   }
   //B)Programming or other unknown errors
   //Log error
-  console.error('Error🔥', err);
+  // console.error('Error🔥', err);
 
   //Send generic message
   return res.status(err.statusCode).render('error', {
@@ -88,7 +88,7 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, req, res);
   } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err, name: err.name, message: err.message };
-    console.log('Error name : ' + err.name);
+    // console.log('Error name : ' + err.name);
 
     if (error.name === 'CastError') {
       error = handleCastErrorDB(error);

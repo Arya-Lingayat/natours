@@ -53,7 +53,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
+  // console.log(url);
   await new Email(newUser, url).sendWelcome();
   createSendToken(newUser, 201, res);
 });
@@ -111,7 +111,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   // 2) verification token
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log(decoded);
+  // console.log(decoded);
   // decoded -->{ id: '671cae135d195e1806f69f1b', iat: 1729934982, exp: 1737710982 }
 
   // 3)Check if user still exists
@@ -192,7 +192,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   }
   //2) Generate the random reset token
   const resetToken = user.createPasswordResetToken();
-  console.log();
   await user.save({ validateBeforeSave: false });
 
   //3) Send it to user's email

@@ -83,7 +83,7 @@ reviewSchema.pre(/^findOneAnd/, async function (next) {
   //We cannot call calcAverageRatings as document DNE in databse now,
   //That's why we pass the query to post middlewear
   this.r = await this.model.findOne(this.getQuery());
-  console.log(this.r.constructor);
+  // console.log(this.r.constructor);
   next();
 });
 

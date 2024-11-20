@@ -57,7 +57,7 @@ export const displayMap = (locations) => {
 
       // Extend bounds to include marker coordinates
     } else {
-      console.warn('Invalid coordinates for location:', loc);
+      // console.warn('Invalid coordinates for location:', loc);
     }
   });
 
@@ -73,7 +73,7 @@ export const displayMap = (locations) => {
       maxZoom: 12,
     });
   } else {
-    console.warn('No valid locations to fit in bounds.');
+    // console.warn('No valid locations to fit in bounds.');
   }
 
   // Adjust the map to fit the container size

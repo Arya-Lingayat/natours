@@ -10,6 +10,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 const AppError = require('./Utils/AppErrors');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
@@ -30,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //use() method uses middlewear , adds middlewear to middlewear stack
 //Morgan is a popular middlewear used for logging
-console.log(process.env.NODE_ENV);
+// .log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
@@ -75,6 +76,7 @@ app.use(
   }),
 );
 
+app.use(compression());
 //Test middlewear
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

@@ -141,7 +141,6 @@ tourSchema.virtual('reviews', {
 tourSchema.pre('save', function (next) {
   //This points to currently saved document
   this.slug = slugify(this.name, { lower: true });
-  console.log(this.slug);
   next();
 });
 
@@ -180,7 +179,7 @@ tourSchema.pre(/^find/, function (next) {
 
 //As this is executed after query has been processed , it also has access to document
 tourSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} milliseconds!`);
+  // console.log(`Query took ${Date.now() - this.start} milliseconds!`);
   next();
 });
 
