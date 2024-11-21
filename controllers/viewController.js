@@ -43,6 +43,10 @@ exports.getAccount = (req, res) => {
   res.status(200).render('account', { title: 'Your account' });
 };
 
+exports.getSignUpForm = (req, res) => {
+  res.status(200).render('sign', { title: 'Sign Up' });
+};
+
 //WITHOUT API
 // exports.updateUserData = catchAsync(async (req, res, next) => {
 //   const updatedUser = await User.findByIdAndUpdate(
