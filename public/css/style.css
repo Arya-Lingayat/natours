@@ -230,10 +230,12 @@ body {
   background-color: #fff;
 }
 
+.btn--login,
 .btn--green {
   background-color: #55c57a;
   color: #fff;
 }
+.btn--login::after,
 .btn--green::after {
   background-color: #55c57a;
 }
